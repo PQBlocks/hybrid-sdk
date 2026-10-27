@@ -7,17 +7,16 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: quay.io/pypa/manylinux_2_28_x86_64
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0  # v7.1.0
         with:
-          python-version: "3.13"
-      - run: python -m pip install build cyclonedx-bom
-      - run: python -m build
+          persist-credentials: false
+      - run: bash scripts/build_manylinux.sh && /opt/python/cp312-cp312/bin/python -m pip install build cyclonedx-bom && /opt/python/cp312-cp312/bin/python -m build -s
       - name: CycloneDX SBOM
         run: |
-          python -m venv /tmp/sbom && /tmp/sbom/bin/pip install dist/*.whl
-          cyclonedx-py environment /tmp/sbom --output-format JSON -o dist/sbom.cdx.json
+          /opt/python/cp312-cp312/bin/python -m venv /tmp/sbom && /tmp/sbom/bin/pip install dist/*.whl
+          /opt/python/cp312-cp312/bin/python -m cyclonedx_py environment /tmp/sbom --output-format JSON -o dist/sbom.cdx.json
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7.0.2
         with:
           name: dist
