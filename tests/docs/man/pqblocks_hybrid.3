@@ -1,0 +1,33 @@
+.TH PQBLOCKS_HYBRID 3 "2026-09-17" "pqblocks 1.0.0" "PQBlocks C API Manual"
+.SH NAME
+pqblocks_hybrid \- Post-Quantum and Classical Hybrid Key Encapsulation and Signatures
+.SH SYNOPSIS
+.B #include <pqblocks_kem.h>
+.B #include <pqblocks_sig.h>
+.PP
+.BI "PQBLOCKS_KEM_X25519_MLKEM768 *PQBLOCKS_KEM_X25519_MLKEM768_new(void);"
+.br
+.BI "void PQBLOCKS_KEM_X25519_MLKEM768_free(PQBLOCKS_KEM_X25519_MLKEM768 *" kem ");"
+.br
+.BI "int PQBLOCKS_KEM_X25519_MLKEM768_encaps(const PQBLOCKS_KEM_X25519_MLKEM768 *" kem ", uint8_t *" ciphertext ", size_t *" ciphertext_len ", uint8_t *" shared_secret ", size_t *" shared_secret_len ", char **" envelope_json ");"
+.br
+.BI "int PQBLOCKS_KEM_X25519_MLKEM768_decaps(const PQBLOCKS_KEM_X25519_MLKEM768 *" kem ", const uint8_t *" ciphertext ", size_t " ciphertext_len ", const char *" envelope_json ", uint8_t *" shared_secret ", size_t *" shared_secret_len ");"
+.PP
+.BI "PQBLOCKS_SIG_ED25519_MLDSA65 *PQBLOCKS_SIG_ED25519_MLDSA65_new(void);"
+.br
+.BI "void PQBLOCKS_SIG_ED25519_MLDSA65_free(PQBLOCKS_SIG_ED25519_MLDSA65 *" sig ");"
+.br
+.BI "int PQBLOCKS_SIG_ED25519_MLDSA65_sign(const PQBLOCKS_SIG_ED25519_MLDSA65 *" sig ", const uint8_t *" message ", size_t " message_len ", uint8_t *" signature ", size_t *" signature_len ", char **" envelope_json ");"
+.br
+.BI "int PQBLOCKS_SIG_ED25519_MLDSA65_verify(const PQBLOCKS_SIG_ED25519_MLDSA65 *" sig ", const uint8_t *" message ", size_t " message_len ", const uint8_t *" signature ", size_t " signature_len ", const char *" envelope_json ");"
+.SH DESCRIPTION
+The PQBlocks hybrid C API implements misuse-resistant wrappers around post-quantum and classical algorithms.
+.PP
+All key encapsulation uses ML-KEM-768 with X25519, combining shared secrets with HKDF-SHA256 and enforcing HMAC-SHA256 key confirmation.
+.PP
+All digital signatures use ML-DSA-65 with Ed25519 in a dual composite envelope.
+.SH RETURN VALUE
+Functions return 0 (\fBPQBLOCKS_SUCCESS\fR) on success, or a negative error code on failure.
+.SH SEE ALSO
+.BR pqblocks (3),
+.BR pqblocks_policy (5)

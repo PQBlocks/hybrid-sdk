@@ -1,0 +1,67 @@
+.TH PQBLOCKS_POLICY 5 "2026-09-17" "pqblocks 1.0.0" "PQBlocks Policy Manual"
+.SH NAME
+pqblocks_policy \\- Post-Quantum and Classical Hybrid Cryptographic Policy Object
+.SH SYNOPSIS
+.B #include <pqblocks_policy.h>
+.PP
+.BI "PQBLOCKS_POLICY *PQBLOCKS_POLICY_load(const char *" path ");"
+.br
+.BI "void PQBLOCKS_POLICY_free(PQBLOCKS_POLICY *" policy ");"
+.br
+.BI "const char *PQBLOCKS_POLICY_get_suite_id(const PQBLOCKS_POLICY *" policy ", size_t index);"
+.br
+.BI "bool PQBLOCKS_POLICY_is_suite_allowed(const PQBLOCKS_POLICY *" policy ", const char *" suite_id ");"
+.br
+.SH DESCRIPTION
+The pqblocks_policy object provides versioned policy enforcement for hybrid cryptographic suites
+in CI/CD pipelines. It defines allowed algorithms, security requirements, and implementation
+constraints for the pqblocks-core SDK.
+.PP
+Policy objects are JSON files with the following structure:
+.nf
+{
+  "schema": "pqblocks-policy/v1",
+  "suites": [
+    {
+      "id": "X25519MLKEM768-Ed25519MLDSA65-HKDF",
+      "kem": {
+        "primitive": "X25519MLKEM768",
+        "kdf": "HKDF-SHA256",
+        "shared_secret_len": 32
+      },
+      "sig": {
+        "primitive": "Ed25519+MLDSA65",
+        "construction": "CompositeAlgorithmSignatures2025",
+        "ctx_label": "ML-DSA-65",
+        "euf_cma": true,
+        "suf_cma": false
+      },
+      "security": {
+        "security_level": 3,
+        "nist_recommended": true,
+        "cnsa_2_0_allowed": true
+      },
+      "implementation": {
+        "provider_preference": ["openssl_default", "oqs_provider"],
+        "min_openssl_version": "3.5.0"
+      }
+    }
+  ],
+  "flags": {
+    "require_key_confirmation": true,
+    "require_kdf_enforcement": true,
+    "enforce_envelope_output": true
+  },
+  "version": "1.0.0",
+  "generated_at": "2026-09-17T00:00:00Z"
+}
+.fi
+.SH RETURN VALUE
+Functions return NULL on failure, or a valid PQBLOCKS_POLICY pointer on success.
+Error details can be obtained via PQBLOCKS_strerror().
+.SH FILES
+$prefix/share/pqblocks/policy/v1.0.0.json
+.I pqblocks_policy.h
+.SH SEE ALSO
+.BR pqblocks (3),
+.BR pqblocks_hybrid (3)

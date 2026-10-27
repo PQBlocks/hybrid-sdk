@@ -1,0 +1,14 @@
+{
+  "acvp_version": "1.0",
+  "kat_status": "verified",
+  "algorithms": [
+    "ML-KEM-768 (FIPS 203)",
+    "ML-DSA-65 (FIPS 204)"
+  ],
+  "vectors": {
+    "keygen": "tests/kats/acvp/ML-KEM-768_keyGen/validation.json",
+    "encap_decap": "tests/kats/acvp/ML-KEM-768_encapDecap/validation.json",
+    "sig_gen": "tests/kats/acvp/ML-DSA-65_sigGen/validation.json",
+    "sig_ver": "tests/kats/acvp/ML-DSA-65_sigVer/validation.json"
+  }
+}

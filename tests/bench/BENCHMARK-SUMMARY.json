@@ -1,0 +1,81 @@
+{
+  "product": "pqblocks-core",
+  "algo": "X25519+ML-KEM-768",
+  "timestamp": "2026-09-18T22:48:51.840317+00:00",
+  "status": "pass",
+  "verified_pass": true,
+  "within_budget": true,
+  "budget_pct": 5.0,
+  "kem_overhead_pct": 2.8,
+  "sig_overhead_pct": 3.1,
+  "runs_directory": "bench/runs",
+  "raw_run_files": [
+    "run_kem_trials.json",
+    "run_sig_trials.json",
+    "run_scaling_trials.json"
+  ],
+  "hardware_fingerprint": {
+    "cpu_model": "Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz",
+    "architecture": "x86_64",
+    "cores": "8",
+    "max_freq": "4500.0000",
+    "min_freq": "800.0000",
+    "cache_L1": "128 KiB (4 instances)",
+    "cache_L2": "1 MiB (4 instances)",
+    "cache_L3": "8 MiB (1 instance)"
+  },
+  "confidence_intervals": {
+    "kem_encaps": {
+      "raw_95_ci_ns": [
+        20566.05,
+        20618.2
+      ],
+      "pqblocks_95_ci_ns": [
+        21086.5,
+        21136.7
+      ],
+      "raw_median_ns": 20593.35,
+      "pqblocks_median_ns": 21105.95,
+      "overhead_pct": 2.5
+    },
+    "kem_decaps": {
+      "raw_95_ci_ns": [
+        22471.7,
+        22530.2
+      ],
+      "pqblocks_95_ci_ns": [
+        23092.7,
+        23167.45
+      ],
+      "raw_median_ns": 22491.75,
+      "pqblocks_median_ns": 23129.0,
+      "overhead_pct": 2.8
+    },
+    "sig_sign": {
+      "raw_95_ci_ns": [
+        45143.4,
+        45269.1
+      ],
+      "pqblocks_95_ci_ns": [
+        46562.95,
+        46676.7
+      ],
+      "raw_median_ns": 45190.05,
+      "pqblocks_median_ns": 46606.95,
+      "overhead_pct": 3.1
+    },
+    "sig_verify": {
+      "raw_95_ci_ns": [
+        32049.6,
+        32144.4
+      ],
+      "pqblocks_95_ci_ns": [
+        32838.2,
+        32907.3
+      ],
+      "raw_median_ns": 32093.45,
+      "pqblocks_median_ns": 32865.1,
+      "overhead_pct": 2.41
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "package": "pqblocks-core",
+  "artifacts": {
+    "src/libpqblocks_policy.so": "sha256:38faa64cd3b0570ab120861c6be49f0ebd5937b37c7949b5bf06baf0ea7205de",
+    "src/libpqblocks_errors.so": "sha256:299ef572d85e50d1a63806df89ce4c961c3831025a752286f26337b129011d9c",
+    "src/libpqblocks_kem.so": "sha256:1e24d8abb168794069b5b91663b585e721301be904e84df3f945fc88d8cf25bf",
+    "src/libpqblocks_sig.so": "sha256:e7d783ca4833886f6fb7710633fedfaa81d686921fb34ac53e48130262281bff",
+    "src/pqblocks": "sha256:7ef8d1070981c5ebedf1286e4db94f30d1bebee7e8e0a2a9834041d29ded264f",
+    "docs/man/pqblocks.3": "sha256:fc694b88d0c1fbc1f57bcef7114395f594217522481a30ac32f22f18a0db165d",
+    "docs/man/pqblocks_hybrid.3": "sha256:208a4621092bd92a09b6cf116cd89b58a18af149857b7ec87d5304a94feedf3b",
+    "docs/man/pqblocks_policy.5": "sha256:edc6290b3ce6673123395cc2f9d1aa50c61bc8e37f69e7839379c9a2c7863771"
+  },
+  "status": "verified"
+}

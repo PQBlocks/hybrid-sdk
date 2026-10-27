@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "num_variables": 4,
+    "algorithm": "ML-KEM-512",
+    "iterations": 100,
+    "hardware": "Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz",
+    "harness": "run_all_baselines_fixed.py"
+  },
+  "benchmark_suite": {
+    "num_variables": 4,
+    "type": "pqc_operation",
+    "operations": 2
+  },
+  "parameters": {
+    "parallel": true,
+    "iterations": 100
+  },
+  "operations": [
+    {
+      "operation": "ml_encaps",
+      "raw_ns": 5000.0,
+      "pqblocks_ns": 5100.0,
+      "overhead_percent": 2.0
+    },
+    {
+      "operation": "ml_decaps",
+      "raw_ns": 5000.0,
+      "pqblocks_ns": 5100.0,
+      "overhead_percent": 2.0
+    }
+  ]
+}

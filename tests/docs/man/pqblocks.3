@@ -1,0 +1,38 @@
+.TH PQBLOCKS 3 "2026-09-17" "pqblocks 1.0.0" "PQBlocks Library Manual"
+.SH NAME
+pqblocks \- Post-Quantum / Classical Hybrid Cryptographic CLI and Engine
+.SH SYNOPSIS
+.B pqblocks
+\fBkem keygen\fR \-\-out \fIfile.json\fR
+.br
+.B pqblocks
+\fBkem encaps\fR \-\-in \fIkem.json\fR \-\-out \fIencaps.json\fR
+.br
+.B pqblocks
+\fBkem decaps\fR \-\-in \fIencaps.json\fR \-\-out \fIshared.key\fR
+.br
+.B pqblocks
+\fBsig keygen\fR \-\-out \fIsig.json\fR
+.br
+.B pqblocks
+\fBsig sign\fR \-\-in \fIsig.json\fR \-\-msg \fImessage.txt\fR \-\-out \fIsig.bin\fR
+.br
+.B pqblocks
+\fBsig verify\fR \-\-in \fIsig.json\fR \-\-msg \fImessage.txt\fR \-\-sig \fIsig.bin\fR
+.SH DESCRIPTION
+\fBpqblocks\fR is a quantum-inspired, classically executed hybrid cryptographic utility providing
+dual-layer quantum resistance by combining classical primitives with post-quantum standards.
+.PP
+The KEM mechanism binds ML-KEM-768 (FIPS 203) with X25519 (RFC 7748) via HKDF-SHA256 (RFC 5869)
+and key confirmation (HMAC-SHA256).
+.PP
+The signature mechanism binds ML-DSA-65 (FIPS 204) with Ed25519 (RFC 8032) in a composite
+structure per draft-ietf-lamps-pq-composite-sigs.
+.SH ENVELOPE FORMAT
+All JSON outputs include self-describing cryptographic envelopes specifying suite ID, algorithms,
+and container lengths.
+.SH RETURN VALUES
+The CLI exits with 0 on success, or non-zero error codes corresponding to the PQBLOCKS error taxonomy.
+.SH SEE ALSO
+.BR pqblocks_hybrid (3),
+.BR pqblocks_policy (5)

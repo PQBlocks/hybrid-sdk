@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-18T22:48:51.840317+00:00",
+    "platform": "Linux x86_64",
+    "iterations": 100,
+    "harness": "libpqblocks_kem.so vs liboqs.so.9 ML-KEM-768",
+    "algorithm": "X25519+ML-KEM-768 hybrid",
+    "hardware": {
+      "cpu_model": "Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz",
+      "architecture": "x86_64",
+      "cores": "8",
+      "max_freq": "4500.0000",
+      "min_freq": "800.0000",
+      "cache_L1": "128 KiB (4 instances)",
+      "cache_L2": "1 MiB (4 instances)",
+      "cache_L3": "8 MiB (1 instance)"
+    }
+  },
+  "operations": [
+    {
+      "operation": "encaps",
+      "raw_ns": 20593.35,
+      "raw_median_ns": 20593.35,
+      "pqblocks_ns": 21105.95,
+      "pqblocks_median_ns": 21105.95,
+      "raw_ci_95": [
+        20566.05,
+        20618.2
+      ],
+      "pqblocks_ci_95": [
+        21086.5,
+        21136.7
+      ],
+      "overhead_percent": 2.5,
+      "budget_percent": 5.0,
+      "within_budget": true
+    },
+    {
+      "operation": "decaps",
+      "raw_ns": 22491.75,
+      "raw_median_ns": 22491.75,
+      "pqblocks_ns": 23129.0,
+      "pqblocks_median_ns": 23129.0,
+      "raw_ci_95": [
+        22471.7,
+        22530.2
+      ],
+      "pqblocks_ci_95": [
+        23092.7,
+        23167.45
+      ],
+      "overhead_percent": 2.8,
+      "budget_percent": 5.0,
+      "within_budget": true
+    }
+  ],
+  "summary": {
+    "encapsulation_ok": true,
+    "decapsulation_ok": true,
+    "overall_pass": true
+  }
+}

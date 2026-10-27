@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-18T22:48:51.840317+00:00",
+    "scaling_points": [
+      1,
+      4,
+      8,
+      16
+    ],
+    "harness": "multithreaded_scaling"
+  },
+  "points": [
+    {
+      "concurrency": 1,
+      "throughput_ops_sec": 5977.3,
+      "speedup": 1.0
+    },
+    {
+      "concurrency": 4,
+      "throughput_ops_sec": 15530.5,
+      "speedup": 2.6
+    },
+    {
+      "concurrency": 8,
+      "throughput_ops_sec": 15792.2,
+      "speedup": 2.64
+    },
+    {
+      "concurrency": 16,
+      "throughput_ops_sec": 15121.6,
+      "speedup": 2.53
+    }
+  ]
+}

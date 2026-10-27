@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-18T22:48:51.840317+00:00",
+    "platform": "Linux x86_64",
+    "iterations": 100,
+    "harness": "libpqblocks_sig.so vs liboqs.so.9 ML-DSA-65",
+    "algorithm": "Ed25519+ML-DSA-65 hybrid",
+    "hardware": {
+      "cpu_model": "Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz",
+      "architecture": "x86_64",
+      "cores": "8",
+      "max_freq": "4500.0000",
+      "min_freq": "800.0000",
+      "cache_L1": "128 KiB (4 instances)",
+      "cache_L2": "1 MiB (4 instances)",
+      "cache_L3": "8 MiB (1 instance)"
+    }
+  },
+  "operations": [
+    {
+      "operation": "sign",
+      "raw_ns": 45190.05,
+      "raw_median_ns": 45190.05,
+      "pqblocks_ns": 46606.95,
+      "pqblocks_median_ns": 46606.95,
+      "raw_ci_95": [
+        45143.4,
+        45269.1
+      ],
+      "pqblocks_ci_95": [
+        46562.95,
+        46676.7
+      ],
+      "overhead_percent": 3.1,
+      "budget_percent": 5.0,
+      "within_budget": true
+    },
+    {
+      "operation": "verify",
+      "raw_ns": 32093.45,
+      "raw_median_ns": 32093.45,
+      "pqblocks_ns": 32865.1,
+      "pqblocks_median_ns": 32865.1,
+      "raw_ci_95": [
+        32049.6,
+        32144.4
+      ],
+      "pqblocks_ci_95": [
+        32838.2,
+        32907.3
+      ],
+      "overhead_percent": 2.41,
+      "budget_percent": 5.0,
+      "within_budget": true
+    }
+  ],
+  "summary": {
+    "sign_ok": true,
+    "verify_ok": true,
+    "overall_pass": true
+  }
+}
